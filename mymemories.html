@@ -11,18 +11,6 @@
         <script src="./libraries/jquery-3.2.1.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
        
-        <script>
-            $(document).ready(function () {
-    
-            $(".input-group-btn").focusin(function () {
-                $("h1").addClass("rainbow");
-               
-            })
-    
-            });
-            
-           
-        </script>
         <style>
     
             .bg-1{
@@ -37,28 +25,6 @@
                 height : 20%;
 
             }
-            .rainbow{
-            
-                -webkit-box-sizing: content-box;
-                -moz-box-sizing: content-box;
-                box-sizing: content-box;
-                cursor: pointer;
-                border: none;
-                font: normal 72px/normal "Passero One", Helvetica, sans-serif;
-                color: tomato;
-                text-align: center;
-                -o-text-overflow: clip;
-                text-overflow: clip;
-                text-shadow: 0 1px 0 rgb(204,204,204) , 0 2px 0 rgb(201,201,201) , 0 3px 0 rgb(187,187,187) , 0 4px 0 rgb(185,185,185) , 0 5px 0 rgb(170,170,170) , 0 6px 1px rgba(0,0,0,0.0980392) , 0 0 5px rgba(0,0,0,0.0980392) , 0 1px 3px rgba(0,0,0,0.298039) , 0 3px 5px rgba(0,0,0,0.2) , 0 5px 10px rgba(0,0,0,0.247059) , 0 10px 10px rgba(0,0,0,0.2) , 0 20px 20px rgba(0,0,0,0.14902) ;
-                -webkit-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
-                -moz-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
-                -o-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
-                transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
-            
-            }
-            .container-fluid{
-            height : 100vh;
-            }
             .H_20{
             height : 20%;
             }
@@ -68,110 +34,55 @@
             .H_100{
             height : 100%;
             }
-            #search{
-                width : 70%;
-            }
-            .M_10{
-                padding-top : 10%;
-                padding-bottom : 10%;
-            }
-            .img-list{
-                width : 150px;
-                height : 150px;
+            #profile_img{
+                border-radius: 50%;
             }
             form{
                 width : 100%;
             }
-            ul.horizontal-slide {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            white-space: nowrap;
-            overflow-x: auto;
-            }
-
-            ul.horizontal-slide li[class*="col"] {
-                display: inline-block;
-                
-                float: none;
-            }
-
-            ul.horizontal-slide li[class*="col"]:first-child {
-                margin-left: 0;
+        
+            .container-fluid{
+                height :100vh;
             }
             
         </style>
     </head>
     <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="col-1"></div>
+                <div class="collapse navbar-collapse">
+                    <img src="http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/device-camera-icon.png" alt="" width="30" height="30">
+                    <ul class="navbar-nav mr-auto" id="navbarText">
+                        <li class="nav-item large">
+                        <a class="nav-link" href="home.html">Home<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item large">
+                        <a class="nav-link active" href="mymemories.html">My Memories</a>
+                        </li>
+                        <li class="nav-item large">
+                        <a class="nav-link " href="writing.html">Writing</a>
+                        </li>
+                       </ul>
+                    <span class="navbar-text">
+                    </span>
+                </div>
+                  
+            <div class="col-2">
+                       
+                        <ul class="navbar-nav mr-auto">
+                            <img id="profile_img" width="45" height="45" src="http://www.vogue.co.kr/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" alt="">
+                            <li class="nav-item large">
+                                <a class="nav-link active" href="">(user_name)</a>
+                            </li>
+                        </ul>
+            </div> 
+                
+            
+            <div class="col-1"></div>
+        </nav>
         <div class="container-fluid">
-            <div class="row bg-primary align-items-center H_20">
-                <div class="col-md-2"></div>
-                <div class="col-md-8 text-center">
-                    <h1>My Memories</h1>
-                </div>   
-                <div class="col-md-2"></div>
-            </div>
-            <div class="row bg-1 H_80">
-                <div class="col-md-6">
-                    <div class="row H_20 align-items-center">
-                        <div class="col-md-1"></div>
-                        <div class="col-md-10">
-                            <div class="input-group-btn">
-                            
-                            <form action="#" method="POST">
-                                <input  type="search" name="search" class="form-control" placeholder="Type text here...">
-                            </form>
-                            <button class="btn btn-primary" type="submit">
-                                <span class="fa fa-search"> Search</span>
-                            </button>
-                            </div>
-                        </div>
-                        <div class="col-md-1"></div>
-                    </div>
-                    <div class="row H_80 align-items-center bg-1">
-                        <div class="col-md-1"></div>
-                        <div class="col-md-10">
-                            
-                                <ul class="horizontal-slide">
-                                
-                                        <li class="col-md-2"><img class="img-thumbnail img-list" src="http://placehold.it/200x200"/></li>
-                                        <li class="col-md-2"><img class="img-thumbnail img-list" src="http://placehold.it/200x200"/></li>
-                                        <li class="col-md-2"><img class="img-thumbnail img-list" src="http://placehold.it/200x200"/></li>
-                                        <li class="col-md-2"><img class="img-thumbnail img-list" src="http://placehold.it/200x200"/></li>
-                                        <li class="col-md-2"><img class="img-thumbnail img-list" src="http://placehold.it/200x200"/></li>
-                                     
-                                </ul>
-                            
-                                서버 코딩을 통해서 동적으로 소스를 뿌려줘야함
-                                예를들면 md-10짜리의너비에 이미지를 뿌리므로
-                                md-2사이즈 너비의 이미지를 5개를 뿌리게 될 경우
-                                다음행에 이미지가 나타나야함.
-                                우리 어플리케이션 코드 로직중 가장 어려운 부분이 될듯. <br>
-
-                                1.마이 메모리즈 처음 진입시 -> 계정 내 저장했던 모든 이미지 파일을
-                                한 행에 5개씩 출력 <br>
-                                2.제목 검색시 -> '%subject%'형태로 검색하여 이미지 제목과 일부텍스트가
-                                일치할경우 해당되는 모든 이미지 한행에 5개씩 출력. <br>
-                                3.출력된 이미지를 클릭할 경우 -> 옆의 이미지 디테일 뷰 에서 확대되어 나타남. <br>
-                                제목과 , 저장 날짜 , 확대된 이미지 뷰가 나타날 계획
-                                4. ^^; 어렵네 <br>
-                                
-                            </div>
-                        <div class="col-md-1"></div>    
-                        </div>
-                        </div>
-                      
-                        <div class="col-md-6 bg-2">
-                                image-detail view function <br>
-                                맨위 가장 상단-> subject <br>
-                                중단 -> closed up image <br>
-                                하단.1 -> saved date <br>
-                                하단.2 -> 이미지저장시 작성했던 텍스트(내용같은거) <br>
-
-
-
-                        </div>
-                    </div>
+           
+            
                     
                 </div>
                
