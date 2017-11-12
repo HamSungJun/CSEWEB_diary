@@ -10,10 +10,15 @@ $dbconn = mysqli_connect($host,$user,$password,$dbname);
 //입력정보 변수에 저장
 $user_email = $_POST["email"];
 $user_password = $_POST["pw"];
-$sql="SELECT id FROM info WHERE email = '$user_email' and password = '$user_password'";
+$sql="SELECT * FROM info WHERE email = '$user_email' and password = '$user_password'";
 $result = mysqli_query($dbconn,$sql);
 if(isset($result)){
-  $_SESSION['login_user']=$user_email;
+  session_start();
+  while($arr = mysqli_fetch_array($result)){
+    $_SESSION['login_user']=$user_email;
+    $_SESSION['name'] = $arr['name'];
+
+  }
   echo("<script>alert('로그인 성공'); location.href='./home.php';</script>");
 }
 else{
