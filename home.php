@@ -58,13 +58,13 @@
                     <img src="http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/device-camera-icon.png" alt="" width="30" height="30">
                     <ul class="navbar-nav mr-auto" id="navbarText">
                         <li class="nav-item large">
-                        <a class="nav-link active" href="home.html">Home<span class="sr-only">(current)</span></a>
+                        <a class="nav-link active" href="home.php">Home<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item large">
-                        <a class="nav-link" href="mymemories.html">My Memories</a>
+                        <a class="nav-link" href="mymemories.php">My Memories</a>
                         </li>
                         <li class="nav-item large">
-                        <a class="nav-link" href="writing.html">Writing</a>
+                        <a class="nav-link" href="writing.php">Writing</a>
                         </li>
                        </ul>
                     <span class="navbar-text">
