@@ -1,3 +1,7 @@
+<?php
+  session_start();
+  $name = $_SESSION['name'];
+?>
 <!DOCTYPE html>
 <html lang="ko">
     <head>
@@ -32,9 +36,9 @@
             margin-bottom : 8.33333%;
             border-radius: 0.5rem;
         }
-       
+
         .font-icsl{
-            font-family: 'Inconsolata', monospace;        
+            font-family: 'Inconsolata', monospace;
         }
         .container-fluid{
             height : 100vh;
@@ -48,7 +52,7 @@
         #profile_img{
             border-radius: 50%;
         }
-        
+
         </style>
     </head>
     <body>
@@ -70,20 +74,18 @@
                     <span class="navbar-text">
                     </span>
                 </div>
-                  
+
             <div class="col-2">
-                       
+
                         <ul class="navbar-nav mr-auto">
                             <img id="profile_img" width="45" height="45" src="http://www.vogue.co.kr/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" alt="">
                             <li class="nav-item large">
-                                <a class="nav-link active" href=""><?php 
-                                session_start();
-                                printf($_SESSION['login_user']); ?></a>
+                                <a class="nav-link active" href=""><?=$name?></a>
                             </li>
                         </ul>
-            </div> 
-                
-            
+            </div>
+
+
             <div class="col-1"></div>
         </nav>
         <div class="container-fluid">
@@ -91,9 +93,9 @@
             <div class="row h_100 bg-1"></div>
             <div class="row h_100 bg-2"></div>
             <div class="row h_100 bg-3"></div>
-            <div class="row h_100 bg-4"></div>              
-            <div class="row h_100 bg-5"></div>        
-            
-        </div>  
+            <div class="row h_100 bg-4"></div>
+            <div class="row h_100 bg-5"></div>
+
+        </div>
     </body>
 </html>
