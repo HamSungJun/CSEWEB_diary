@@ -19,7 +19,11 @@ $user_email = htmlspecialchars($_POST["email"]);
 $user_password = htmlspecialchars($_POST["pw"]);
 $user_name = htmlspecialchars($_POST["name"]);
 $user_birth = htmlspecialchars($_POST["birthday"]);
+if(!isset($_FILES['file'])){
 
+echo "업로드된 이미지가 없습니다.";
+
+}
 //빈칸검사 결과 존재시
 if($user_name==''|| $user_password==''|| $user_email=='' || $user_birth==''){
   echo '<script>alert("양식을 모두 채워주세요")
@@ -31,7 +35,7 @@ else {
   $tableemtpy = TRUE;
   $result = FALSE;
   $data = mysqli_query($dbconn,"select email from info");
-  
+
   while($finddata = mysqli_fetch_assoc($data)){
     $tableemtpy = FALSE;
     //중복존재시

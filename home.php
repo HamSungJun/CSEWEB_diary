@@ -76,7 +76,9 @@
                         <ul class="navbar-nav mr-auto">
                             <img id="profile_img" width="45" height="45" src="http://www.vogue.co.kr/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" alt="">
                             <li class="nav-item large">
-                                <a class="nav-link active" href="">(user_name)</a>
+                                <a class="nav-link active" href=""><?php 
+                                session_start();
+                                printf($_SESSION['login_user']); ?></a>
                             </li>
                         </ul>
             </div> 
