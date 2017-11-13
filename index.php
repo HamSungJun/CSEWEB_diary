@@ -14,11 +14,9 @@ $sql="SELECT * FROM info WHERE email = '$user_email' and password = '$user_passw
 $result = mysqli_query($dbconn,$sql);
 if(isset($result)){
   session_start();
-  while($arr = mysqli_fetch_array($result)){
-    $_SESSION['login_user']=$user_email;
-    $_SESSION['name'] = $arr['name'];
-
-  }
+  $arr = mysqli_fetch_array($result);
+  $_SESSION['login_user']=$user_email;
+  $_SESSION['name'] = $arr['name'];
   echo("<script>alert('로그인 성공'); location.href='./home.php';</script>");
 }
 else{
