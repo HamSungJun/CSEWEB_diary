@@ -11,7 +11,7 @@
         <script src="./libraries/jquery-3.2.1.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="./libraries/bootstrap-filestyle.js"></script>
-        <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Space+Mono|Spirax" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Space+Mono|Spirax|Anton|Pacifico" rel="stylesheet">
         <script>
             $(document).ready(function() {
                 $("#fileUpload").on("change" , function () {
@@ -46,22 +46,20 @@
                         "border-radius" : "-=50px"
                     })
                 })
-
-                // $("#rotate").click(function () {
-                //     $("#target_img").css({
-                //         "border-radius" : "-=50px"
+                
+                $("#font_select").on("change" , function () {
+                    $("#font_select option").each(function () {
+                    if($(this).is(':selected')){
                         
-                //     })
-                // })
+                        var selected_font_val = $(this).val();
+                        // alert(selected_font_val);
+                        $("from").filter("input").addClass(selected_font_val);
 
-                $('#target_img').animate({  borderSpacing: -90 }, {
-                step: function(now,fx) {
-                $(this).css('-webkit-transform','rotate('+now+'deg)'); 
-                $(this).css('-moz-transform','rotate('+now+'deg)');
-                $(this).css('transform','rotate('+now+'deg)');
-                },
-                duration:'slow'
-            },'linear');
+                    }
+                })
+                })
+               
+                
                
 
                 // 저장시 설정했던 CSS 밸류들이 저장됨.
@@ -76,6 +74,15 @@
        
         </script>
         <style>
+            .btn-plus{
+                background-color : #DDC5A2;
+            }
+            .btn-minus{
+                background-color : #5D5B48;
+            }
+            .btn-alone{
+                bakground-color : #FFFAFB
+            }
             .Space_Mono{
                 font-family : 'Space Mono', monospace;
             }
@@ -85,6 +92,12 @@
             .Spirax{
                 font-family : 'Spirax', cursive; 
             }
+            .Anton{
+                font-family: 'Anton', sans-serif;
+            }
+            .Pacifico{
+                font-family: 'Pacifico', cursive;
+            }   
             .bg-1{
                 background-color : #FFFAFB;
             }
@@ -111,7 +124,7 @@
                 
                 
             }
-            #exampleFormControlSelect1{
+            #font_select{
                 margin-top : -43.5%;
                 margin-bottom: 5%;
                 height : 50px;
@@ -156,39 +169,43 @@
         <div class="container-fluid">
            
             <div class="row bg-1 h_100">
-               
+            
+                   <div class="col-12">
+                    <div class="row bg-1 h_10">
+                   </div>
+               </div>
                 <div class="col-1"></div>
                 <div class="col-10">
 
                 
-                    <div class="row bg-1 h_100 align-items-center">
+                    <div class="row bg-1 h_90 align-items-center">
                         
                         <div class="col-2 text-center">
                             <form action="writing.php" method="POST">
                                 <div class="form-group">
-                                        <label for="exampleFormControlSelect1"></label>
-                                        <select class="form-control-lg form-control" id="exampleFormControlSelect1">
-                                        <option>Fonts...</option>    
-                                        <option value="">1</option>
-                                        <option value="">2</option>
-                                        <option value="">3</option>
-                                        <option value="">4</option>
-                                        <option value="">5</option>
+                                        <label for="font_select"></label>
+                                        <select class="form-control-lg form-control" id="font_select">
+                                        <optgroup label="Fonts..."></optgroup>    
+                                        <option value="Space_Mono" class="Space_Mono large" value="">Space Mono</option>
+                                        <option value="Amatic_SC" class="Amatic_SC large" value="">Amatic SC</option>
+                                        <option value="Spirax" class="Spirax large" value="">Spirax</option>
+                                        <option value="Anton" class="Anton large" value="">Anton</option>
+                                        <option value="Pacifico" class="Pacifico large" value="">Pacifico</option>
                                         </select>
                                         
-                                        <button type="button" id="opacity" class="rect btn btn-primary btn-lg btn-block">Opacity +</button>
-                                        <button type="button" id="opacity-" class="rect btn btn-danger btn-lg btn-block">Opacity -</button>
-                                        <button type="button" id="radius" class="rect btn btn-primary btn-lg btn-block">radius +</button>
-                                        <button type="button" id="radius-" class="rect btn btn-danger btn-lg btn-block">radius -</button>
-                                        <button type="button" id="rotate" class="rect btn btn-primary btn-lg btn-block">rotate</button>
-                                        <button type="button" id="" class="rect btn btn-danger btn-lg btn-block"></button>
+                                        <button type="button" id="opacity" class="rect btn btn-plus btn-lg btn-block">Opacity +</button>
+                                        <button type="button" id="opacity-" class="rect btn btn-minus btn-lg btn-block">Opacity -</button>
+                                        <button type="button" id="radius" class="rect btn btn-plus btn-lg btn-block">radius +</button>
+                                        <button type="button" id="radius-" class="rect btn btn-minus btn-lg btn-block">radius -</button>
+                                        <button type="button" id="rotate" class="rect btn btn-alone btn-lg btn-block">rotate</button>
+                                        <button type="button" id="" class="rect btn btn-alone btn-lg btn-block"></button>
                                 </div>
                                 
                             </form>
                         </div>
                             <div class="col-8">
                            
-                            <form action="writing.php" method="POST">    
+                        <form action="writing.php" method="POST">    
                                 <div class="input-group input-group-lg">
                                 <span class="input-group-addon fa fa-pencil fa-3x"></span>
                                 <input name="subject" type="text" class="form-control" placeholder="What Subject?">
@@ -207,11 +224,12 @@
                                 <span class="input-group-addon fa fa-comment fa-3x"></span>
                                 <input name="comment" type="text" class="form-control" placeholder="Some Comments...">
                                 </div>
-                            </form>
+                           
                             <label class="control-label">
                             <input type="file" name="file" id="fileUpload">
                             </label>
                             <button id="sumbit_btn" type="submit" class="btn btn-primary btn-lg">I Want To Save This</button>
+                        </form>
                             </div>
                         <div class="col-2"></div>
                         
