@@ -18,7 +18,6 @@
         
                 var tmppath = URL.createObjectURL(event.target.files[0]);
                 $("#target_img").attr("src",tmppath);
-
                 });
                 
                 $("#opacity").click(function () {
@@ -33,7 +32,6 @@
                         "opacity" : "-=0.1"
                     })
                 })
-
                 $("#radius").click(function () {
                     $("#target_img").css({
                         "border-radius" : "+=50px"
@@ -60,12 +58,13 @@
                     }
                 })
                 })
+
+                
                 
                 
          
                 
                
-
                 // 저장시 설정했던 CSS 밸류들이 저장됨.
                 $("#sumbit_btn").click(function () {
                     var opacity_Val =  $("#target_img").css("opacity");
@@ -115,8 +114,8 @@
                 border-radius: 50%;
             }
             #target_img{
-                width: 100%;
-                height : 600px;
+                width : 100%;
+                height : 100%;
             }
             .form_container{
                 width : 80%;
@@ -131,8 +130,6 @@
             .rect{
                 width : 100%;
                 height : 100px;
-                
-                
             }
             #font_select{
                 margin-top : -43.5%;
@@ -140,6 +137,13 @@
                 height : 50px;
                 
             }
+            .target_img_container{
+                width : 100%;
+                height : 600px;
+                
+           
+            }
+            
            
         </style>
     </head>
@@ -205,10 +209,10 @@
                                         
                                         </select>
                                         
-                                        <button type="button" id="opacity" class="rect btn btn-plus btn-lg btn-block">Opacity +</button>
-                                        <button type="button" id="opacity-" class="rect btn btn-minus btn-lg btn-block">Opacity -</button>
-                                        <button type="button" id="radius" class="rect btn btn-plus btn-lg btn-block">radius +</button>
-                                        <button type="button" id="radius-" class="rect btn btn-minus btn-lg btn-block">radius -</button>
+                                        <button type="button" id="opacity" class="rect btn btn-primary btn-lg btn-block">Opacity +</button>
+                                        <button type="button" id="opacity-" class="rect btn btn-danger btn-lg btn-block">Opacity -</button>
+                                        <button type="button" id="radius" class="rect btn btn-primary btn-lg btn-block">radius +</button>
+                                        <button type="button" id="radius-" class="rect btn btn-danger btn-lg btn-block">radius -</button>
                                         <button type="button" id="rotate" class="rect btn btn-alone btn-lg btn-block">rotate</button>
                                         <button type="button" id="" class="rect btn btn-alone btn-lg btn-block"></button>
                                 </div>
@@ -217,31 +221,33 @@
                         </div>
                             <div class="col-8">
                            
-                        <form action="writing.php" method="POST">    
-                                <div class="input-group input-group-lg">
-                                <span class="input-group-addon fa fa-pencil fa-3x"></span>
-                                <input name="subject" type="text" class="form-control font_input" placeholder="What Subject?">
-                                </div>
+                                <form action="writing.php" method="POST">    
+                                        <div class="input-group input-group-lg">
+                                        <span class="input-group-addon fa fa-pencil fa-3x"></span>
+                                        <input name="subject" type="text" class="form-control font_input" placeholder="What Subject?">
+                                        </div>
 
-                                <div class="input-group">
-                                <img id="target_img" class="card-img-top img-thumbnail" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAI1eKYDazfKkPBTVl6zwa9AJmIt1wFt88XlnvCiVzpQJZEwxa" alt="">
-                                </div>
+                                        
+                                            <div class="target_img_container">
+                                            <img id="target_img" class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAI1eKYDazfKkPBTVl6zwa9AJmIt1wFt88XlnvCiVzpQJZEwxa" alt="">
+                                            </div>
+                                       
 
-                                <div class="input-group input-group-lg">
-                                <span class="input-group-addon fa fa-calendar fa-3x"></span>
-                                <input  name="date" type="date" class="form-control font_input" placeholder="">
-                                </div>
+                                        <div class="input-group input-group-lg">
+                                        <span class="input-group-addon fa fa-calendar fa-3x"></span>
+                                        <input  name="date" type="date" class="form-control font_input" placeholder="">
+                                        </div>
 
-                                <div class="input-group input-group-lg">
-                                <span class="input-group-addon fa fa-comment fa-3x"></span>
-                                <input name="comment" type="text" class="form-control font_input" placeholder="Some Comments...">
-                                </div>
-                           
-                            <label class="control-label">
-                            <input type="file" name="file" id="fileUpload" class="filestyle">
-                            </label>
-                            <button id="sumbit_btn" type="submit" class="btn btn-primary btn-lg">I Want To Save This</button>
-                        </form>
+                                        <div class="input-group input-group-lg">
+                                        <span class="input-group-addon fa fa-comment fa-3x"></span>
+                                        <input name="comment" type="text" class="form-control font_input" placeholder="Some Comments...">
+                                        </div>
+                                
+                                    <label class="control-label">
+                                    <input type="file" name="file" id="fileUpload" class="filestyle">
+                                    </label>
+                                    <button id="sumbit_btn" type="submit" class="btn btn-primary btn-lg">I Want To Save This</button>
+                                </form>
                             </div>
                         <div class="col-2"></div>
                         

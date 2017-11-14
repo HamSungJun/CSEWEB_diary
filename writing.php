@@ -11,14 +11,13 @@
         <script src="./libraries/jquery-3.2.1.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="./libraries/bootstrap-filestyle.js"></script>
-        <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Space+Mono|Spirax" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Space+Mono|Spirax|Anton|Pacifico|Cabin+Sketch|Sigmar+One" rel="stylesheet">
         <script>
             $(document).ready(function() {
                 $("#fileUpload").on("change" , function () {
         
                 var tmppath = URL.createObjectURL(event.target.files[0]);
                 $("#target_img").attr("src",tmppath);
-
                 });
                 
                 $("#opacity").click(function () {
@@ -33,7 +32,6 @@
                         "opacity" : "-=0.1"
                     })
                 })
-
                 $("#radius").click(function () {
                     $("#target_img").css({
                         "border-radius" : "+=50px"
@@ -46,24 +44,27 @@
                         "border-radius" : "-=50px"
                     })
                 })
+                
+                $("#font_select").on("change" , function () {
+                    
+                    $("#font_select option").each(function () {
+                    if($(this).is(':selected')){
+                        $("form").find(".font_input").css({
+                            fontFamily : $(this).val()
+                        })
+                        $("form").find(".font_input").css({
+                            fontFamily : $(this).val()
+                        })
+                    }
+                })
+                })
 
-                // $("#rotate").click(function () {
-                //     $("#target_img").css({
-                //         "border-radius" : "-=50px"
-                        
-                //     })
-                // })
-
-                $('#target_img').animate({  borderSpacing: -90 }, {
-                step: function(now,fx) {
-                $(this).css('-webkit-transform','rotate('+now+'deg)'); 
-                $(this).css('-moz-transform','rotate('+now+'deg)');
-                $(this).css('transform','rotate('+now+'deg)');
-                },
-                duration:'slow'
-            },'linear');
+                
+                
+                
+         
+                
                
-
                 // 저장시 설정했던 CSS 밸류들이 저장됨.
                 $("#sumbit_btn").click(function () {
                     var opacity_Val =  $("#target_img").css("opacity");
@@ -76,6 +77,15 @@
        
         </script>
         <style>
+            .btn-plus{
+                background-color : #DDC5A2;
+            }
+            .btn-minus{
+                background-color : #5D5B48;
+            }
+            .btn-alone{
+                bakground-color : #FFFAFB
+            }
             .Space_Mono{
                 font-family : 'Space Mono', monospace;
             }
@@ -85,6 +95,18 @@
             .Spirax{
                 font-family : 'Spirax', cursive; 
             }
+            .Anton{
+                font-family: 'Anton', sans-serif;
+            }
+            .Pacifico{
+                font-family: 'Pacifico', cursive;
+            }
+            .Cabin_Sketch{
+                font-family: 'Cabin Sketch', cursive;
+            }
+            .Sigmar_One{
+                font-family: 'Sigmar One', cursive;
+            }
             .bg-1{
                 background-color : #FFFAFB;
             }
@@ -92,8 +114,8 @@
                 border-radius: 50%;
             }
             #target_img{
-                width: 100%;
-                height : 600px;
+                width : 100%;
+                height : 100%;
             }
             .form_container{
                 width : 80%;
@@ -108,15 +130,20 @@
             .rect{
                 width : 100%;
                 height : 100px;
-                
-                
             }
-            #exampleFormControlSelect1{
+            #font_select{
                 margin-top : -43.5%;
                 margin-bottom: 5%;
                 height : 50px;
                 
             }
+            .target_img_container{
+                width : 100%;
+                height : 600px;
+                
+           
+            }
+            
            
         </style>
     </head>
@@ -156,62 +183,71 @@
         <div class="container-fluid">
            
             <div class="row bg-1 h_100">
-               
+            
+                   <div class="col-12 h_10">
+                 
+               </div>
                 <div class="col-1"></div>
                 <div class="col-10">
 
                 
-                    <div class="row bg-1 h_100 align-items-center">
+                    <div class="row bg-1 h_90 align-items-center">
                         
                         <div class="col-2 text-center">
                             <form action="writing.php" method="POST">
                                 <div class="form-group">
-                                        <label for="exampleFormControlSelect1"></label>
-                                        <select class="form-control-lg form-control" id="exampleFormControlSelect1">
-                                        <option>Fonts...</option>    
-                                        <option value="">1</option>
-                                        <option value="">2</option>
-                                        <option value="">3</option>
-                                        <option value="">4</option>
-                                        <option value="">5</option>
+                                        <label for="font_select"></label>
+                                        <select class="form-control-lg form-control" id="font_select">
+                                        <optgroup label="Fonts..."></optgroup>    
+                                        <option value="Space Mono" class="Space_Mono large" >Space Mono</option>
+                                        <option value="Amatic SC" class="Amatic_SC large">Amatic SC</option>
+                                        <option value="Spirax" class="Spirax large">Spirax</option>
+                                        <option value="Anton" class="Anton large">Anton</option>
+                                        <option value="Pacifico" class="Pacifico large">Pacifico</option>
+                                        <option value="Cabin Sketch" class="Cabin_Sketch large">Cabin_Sketch</option>
+                                        <option value="Sigmar One" class="Sigmar_One large">Sigmar_One</option>
+                                        
                                         </select>
                                         
                                         <button type="button" id="opacity" class="rect btn btn-primary btn-lg btn-block">Opacity +</button>
                                         <button type="button" id="opacity-" class="rect btn btn-danger btn-lg btn-block">Opacity -</button>
                                         <button type="button" id="radius" class="rect btn btn-primary btn-lg btn-block">radius +</button>
                                         <button type="button" id="radius-" class="rect btn btn-danger btn-lg btn-block">radius -</button>
-                                        <button type="button" id="rotate" class="rect btn btn-primary btn-lg btn-block">rotate</button>
-                                        <button type="button" id="" class="rect btn btn-danger btn-lg btn-block"></button>
+                                        <button type="button" id="rotate" class="rect btn btn-alone btn-lg btn-block">rotate</button>
+                                        <button type="button" id="" class="rect btn btn-alone btn-lg btn-block"></button>
                                 </div>
                                 
                             </form>
                         </div>
                             <div class="col-8">
                            
-                            <form action="writing.php" method="POST">    
-                                <div class="input-group input-group-lg">
-                                <span class="input-group-addon fa fa-pencil fa-3x"></span>
-                                <input name="subject" type="text" class="form-control" placeholder="What Subject?">
-                                </div>
+                                <form action="writing.php" method="POST">    
+                                        <div class="input-group input-group-lg">
+                                        <span class="input-group-addon fa fa-pencil fa-3x"></span>
+                                        <input name="subject" type="text" class="form-control font_input" placeholder="What Subject?">
+                                        </div>
 
-                                <div class="input-group">
-                                <img id="target_img" class="card-img-top img-thumbnail" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAI1eKYDazfKkPBTVl6zwa9AJmIt1wFt88XlnvCiVzpQJZEwxa" alt="">
-                                </div>
+                                        
+                                            <div class="target_img_container">
+                                            <img id="target_img" class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAI1eKYDazfKkPBTVl6zwa9AJmIt1wFt88XlnvCiVzpQJZEwxa" alt="">
+                                            </div>
+                                       
 
-                                <div class="input-group input-group-lg">
-                                <span class="input-group-addon fa fa-calendar fa-3x"></span>
-                                <input  name="date" type="date" class="form-control" placeholder="">
-                                </div>
+                                        <div class="input-group input-group-lg">
+                                        <span class="input-group-addon fa fa-calendar fa-3x"></span>
+                                        <input  name="date" type="date" class="form-control font_input" placeholder="">
+                                        </div>
 
-                                <div class="input-group input-group-lg">
-                                <span class="input-group-addon fa fa-comment fa-3x"></span>
-                                <input name="comment" type="text" class="form-control" placeholder="Some Comments...">
-                                </div>
-                            </form>
-                            <label class="control-label">
-                            <input type="file" name="file" id="fileUpload">
-                            </label>
-                            <button id="sumbit_btn" type="submit" class="btn btn-primary btn-lg">I Want To Save This</button>
+                                        <div class="input-group input-group-lg">
+                                        <span class="input-group-addon fa fa-comment fa-3x"></span>
+                                        <input name="comment" type="text" class="form-control font_input" placeholder="Some Comments...">
+                                        </div>
+                                
+                                    <label class="control-label">
+                                    <input type="file" name="file" id="fileUpload" class="filestyle">
+                                    </label>
+                                    <button id="sumbit_btn" type="submit" class="btn btn-primary btn-lg">I Want To Save This</button>
+                                </form>
                             </div>
                         <div class="col-2"></div>
                         

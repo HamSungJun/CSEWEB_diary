@@ -86,7 +86,9 @@
             </div>
 
 
-            <div class="col-1"></div>
+            <div class="col-1" >
+            <a href="logout.php"><span class="fa fa-sign-out fa-2x" style="color : white"></span></a>
+            </div>
         </nav>
         <div class="container-fluid">
 

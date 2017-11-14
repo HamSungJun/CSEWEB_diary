@@ -9,6 +9,7 @@
   <link async href="http://fonts.googleapis.com/css?family=Passero%20One" data-generated="http://enjoycss.com" rel="stylesheet" type="text/css"/>
   <script src="./libraries/jquery-3.2.1.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="./libraries/jquery.cookie.js"></script>
 
   <script>
     $(document).ready(function () {
@@ -16,7 +17,21 @@
         $("h1").addClass("rainbow");
         
       })
-  
+      $("#submit").on("click" , function () {
+        if($("#remember").is(":checked") == true){
+
+          var id_log = $("#email").val();
+          var pw_log = $("#pw").val();
+          $.cookie('id',$('#signinId').val());
+          $.cookie('pass',$('#signinPwd').val());
+
+          // alert($("#email").val());
+          // alert($("#pw").val())
+        }        
+      })
+
+      
+      
       })
 
 
@@ -65,7 +80,7 @@
               <input type="password" name="pw" class="form-control" id="pw">
             </div>
             <div class="checkbox">
-              <label><input type="checkbox" name="remember" value="true">Remember me</label>
+              <label><input type="checkbox" name="remember" value="true" id="remember">Remember me</label>
             </div>
 
             <button type="submit" class="btn btn-success" id="submit">Login</button>
