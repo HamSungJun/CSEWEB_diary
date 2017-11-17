@@ -4,6 +4,7 @@
     <title>Memoires</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/device-camera-icon.png"/>
     <link rel="stylesheet" href="./libraries/jquery-ui.css">
     <link rel="stylesheet" href="./libraries/bootstrap.css">
     <link async href="http://fonts.googleapis.com/css?family=Passero%20One" data-generated="http://enjoycss.com" rel="stylesheet" type="text/css"/>
@@ -21,11 +22,12 @@
 
         $("#findpw").click(function () {
             $("#email").prop("disabled" , false)
-
+          
+            
         })
         $("#findid").click(function () {
             $("#email").prop("disabled" , true)
-
+            $("#email").val("");
         })
         });
 
@@ -46,10 +48,23 @@
             height : 100%;
         }
         .monitor{
-            border: 2px solid tomato;
+            /* border: 2px solid tomato; */
             height : 460px;
-            background : gray;
+            background: linear-gradient(45deg, tomato 25%,
+                white 25%, white 50%, 
+                tomato 50%, tomato 75%, 
+                white 75%);
+            padding : 0px;
+            background-size:100px 100px;
+            
         }
+        .contentbox{
+            height : 360px;
+            width : 540px;
+            background-color : white;
+            margin-top : 50px;
+            margin-left : 50px;
+        }   
        
 
     </style>
@@ -97,7 +112,7 @@
               </div>
 
               <div class="row">
-                   
+                  
                    
                     <div class="col-3">
                             <button type="button" class="btn btn-light btn-lg btn-block" id="findid">Find ID</button>
@@ -123,9 +138,14 @@
     <div class="col-md-2"></div>
 
     <div class="col-md-4">
-        <div class="row">
+        <div class="row align-items-center">
             <div class="col-12 monitor">
                 <!-- 내부 모니터에 등장할 텍스트는 PHP를 통해 나타내 주세요 -->
+                <div class="row contentbox align-items-center">
+                    
+                <p></p>
+
+                </div>
             </div>
         </div>
     </div>

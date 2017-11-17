@@ -1,9 +1,14 @@
+<?php
+  session_start();
+  $name = $_SESSION['name'];
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <title>Memoires</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" type="image/png" href="http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/device-camera-icon.png"/>
         <link rel="stylesheet" href="./libraries/jquery-ui.css">
         <link rel="stylesheet" href="./libraries/bootstrap.css">
         <link async href="http://fonts.googleapis.com/css?family=Passero%20One" data-generated="http://enjoycss.com" rel="stylesheet" type="text/css"/>
@@ -72,13 +77,15 @@
                         <ul class="navbar-nav mr-auto">
                             <img id="profile_img" width="45" height="45" src="http://www.vogue.co.kr/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" alt="">
                             <li class="nav-item large">
-                                <a class="nav-link active" href="">(user_name)</a>
+                                <a class="nav-link active" href=""><?= $name ?></a>
                             </li>
                         </ul>
             </div> 
                 
             
-            <div class="col-1"></div>
+            <div class="col-1" >
+            <a href="logout.php"><span class="fa fa-sign-out fa-2x" style="color : white"></span></a>
+            </div>
         </nav>
         <div class="container-fluid">
            

@@ -19,13 +19,11 @@ $user_email = htmlspecialchars($_POST["email"]);
 $user_password = htmlspecialchars($_POST["pw"]);
 $user_name = htmlspecialchars($_POST["name"]);
 $user_birth = htmlspecialchars($_POST["birthday"]);
+$user_phone_num = htmlspecialchars($_POST["phone_num"]);
 if(!isset($_FILES['file'])){
-
 echo "업로드된 이미지가 없습니다.";
-
 }
-//빈칸검사 결과 존재시
-if($user_name==''|| $user_password==''|| $user_email=='' || $user_birth==''){
+if($user_name==''|| $user_password==''|| $user_email=='' || $user_birth=='' || $user_phone_num==''){
   echo '<script>alert("양식을 모두 채워주세요")
       history.back()</script>';
 }
@@ -54,7 +52,7 @@ else {
   }
   //중복이 없으면 회원정보 db에 저장
   if($result){
-    $sql = "insert into info(email,password,name,birth,profile) values('$user_email','$user_password','$user_name','$user_birth','$profile')";
+    $sql = "insert into info(email,password,name,birth,phone_num,profile) values('$user_email','$user_password','$user_name','$user_birth','$user_phone_num','$profile')";
     if($dbconn->query($sql)){
       echo("<script>alert('회원가입 성공'); location.href='./index.html';</script>");
     }
