@@ -172,12 +172,6 @@ small {
 }
 .large{
   font-size : 120%;
-  
-}
-.larger{
-  font-size : 180%; 
-}
-.bold{
   font-weight : bold;
 }
 

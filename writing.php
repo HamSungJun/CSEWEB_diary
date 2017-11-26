@@ -11,16 +11,19 @@
         <link rel="shortcut icon" type="image/png" href="http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/device-camera-icon.png"/>
         <link rel="stylesheet" href="./libraries/jquery-ui.css">
         <link rel="stylesheet" href="./libraries/bootstrap.css">
+        <link rel="stylesheet" href="./libraries/bootstrap-colorpicker.css">
         <link async href="http://fonts.googleapis.com/css?family=Passero%20One" data-generated="http://enjoycss.com" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <script src="./libraries/jquery-3.2.1.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="./libraries/bootstrap-filestyle.js"></script>
+        <script type"text/javascript" src="./libraries/bootstrap-filestyle.js"></script>
+        <script type="text/javascript" src="./libraries/bootstrap-colorpicker.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Space+Mono|Spirax|Anton|Pacifico|Cabin+Sketch|Sigmar+One" rel="stylesheet">
         <script>
             $(document).ready(function() {
+                $("#Color_input").colorpicker();
                 $("#fileUpload").on("change" , function () {
-        
+                    
                 var tmppath = URL.createObjectURL(event.target.files[0]);
                 $("#target_img").attr("src",tmppath);
                 });
@@ -64,6 +67,36 @@
                 })
                 })
 
+                $("#Type_select").on("change" , function () {
+                    
+                    $("#Type_select option").each(function () {
+                    if($(this).is(':selected')){
+                        // alert($(this).val());
+                        $("#target_img").css({
+                            borderStyle : $(this).val()
+                        })
+                    }
+                })
+                })
+                
+                $("#Color_input").on("change" , function () {
+                   var Color_value = $(this).val(); 
+                //    alert(Color_value);
+                   $("#target_img").css({
+                        borderColor : Color_value
+                   })
+               
+                })
+
+                $("#Thick_input").on("change" , function () {
+                   var Thick_value = $(this).val(); 
+                //    alert(Thick_value);
+                   $("#target_img").css({
+                        borderWidth : Thick_value+"px"
+                   })
+               
+                })
+
                 $("#grayscale_select").on("change" , function () {
                     
                     $("#grayscale_select option").each(function () {
@@ -74,6 +107,34 @@
                        
                     }
                 })
+                })
+
+                $("#border_Apply").on('click',function () {
+                    // var How_Thick = $('#Thick_input').val();
+                    // var What_Type = $('#Type_select').val();
+                    // var What_Color = $('#Color_input').val();
+
+                  
+                    $('#Thick_input').attr("disabled",true);
+                    $('#Type_select').attr("disabled",true);
+                    $('#Color_input').attr("disabled",true);
+                    // form에 해당 변수값 전달.
+
+                    
+                })
+
+                $("#border_Cancel").on('click',function () {
+                    // var How_Thick = $('#Thick_input').val();
+                    // var What_Type = $('#Type_select').val();
+                    // var What_Color = $('#Color_input').val();
+
+                    
+                    $('#Thick_input').attr("disabled",false);
+                    $('#Type_select').attr("disabled",false);
+                    $('#Color_input').attr("disabled",false);
+                    // form에 해당 변수값 전달.
+
+                    
                 })
 
 
@@ -112,6 +173,7 @@
             }
             .btn-alone{
                 bakground-color : #FFFAFB
+                
             }
             .Space_Mono{
                 font-family : 'Space Mono', monospace;
@@ -159,20 +221,25 @@
                 width : 45%;
                 height : 50px;
             }
-            #font_select , #grayscale_select{
+             #font_select , #grayscale_select{
                 margin-top : -43.5%;
                 margin-bottom: 5%;
                 height : 50px;
                 
-            }
+            } 
             .target_img_container{
-                width : 100%;
+                width : 1000px;
                 height : 600px;
+                margin : 0px auto;
+                border-color: gray;
                 
            
             }
             .card{
                 margin-bottom : 4px;
+            }
+            .mar_B{
+                margin-bottom : 5px;
             }
            
             
@@ -231,7 +298,7 @@
                             <form action="writing.php" method="POST">
                                 <div class="form-group">
                                     
-                                        <label for="font_select"></label>
+                                        
                                         <select class="form-control-lg form-control" id="font_select">
                                         <optgroup label="Fonts..."></optgroup>    
                                         <option value="Space Mono" class="Space_Mono large" >Space Mono</option>
@@ -261,10 +328,38 @@
                                         </div>
                                         <div class="card">
                                                 <div class="card-body text-center">
-                                                  <h4 class="card-title">(어떤? 프로퍼티?)</h4>
-                                                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                                  <button type="button" id="" class="rect btn btn-primary btn-sm">rotate</button>
-                                                  <button type="button" id="" class="rect btn btn-danger btn-sm"></button>
+                                                    <h4 class="card-title">Colored Boder</h4>
+                                                    <p class="card-text">Giving image to various types of border with color </p>
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            <div class="col-12">
+                                                                  <input id="Thick_input" type="text" class="form-control mar_B" placeholder="Thickness(Number)" />
+                                                            </div>
+
+                                                            <div class="col-12">
+                                                            <select class="form-control mar_B " id="Type_select">
+                                                            <optgroup label="Types..."></optgroup>    
+                                                            <option value="">Border Type</option>
+                                                            <option value="solid" class="text-center" >solid</option>
+                                                            <option value="dotted" class="">dotted</option>
+                                                            <option value="double" class="">double</option>
+                                                            <option value="ridge" class="">ridge</option>
+                                                           
+                                                                
+                                                            </div>
+
+                                                            <div class="col-12">
+                                                                <input id="Color_input" type="text" class="form-control mar_B" placeholder="Color" />
+                        
+                                                                <button type="button" id="border_Apply" class="btn btn-success btn-sm btn-block">Apply</button>
+                                                                <button type="button" id="border_Cancel" class="btn btn-danger btn-sm btn-block">Cancel</button>
+                                                            </div>
+                                                           
+                                                        </div>
+                                                      
+                                                    </div>
+                                                    
+                                                    
                                                 </div>
                                         </div>
                                         </div>
@@ -275,7 +370,7 @@
                                 
                             </form>
                         </div>
-                            <div class="col-8">
+                            <div class="col-8 text-center">
                             
                                 <form action="writing.php" method="POST">    
                                         <div class="input-group input-group-lg">
