@@ -20,6 +20,12 @@ $user_password = htmlspecialchars($_POST["pw"]);
 $user_name = htmlspecialchars($_POST["name"]);
 $user_birth = htmlspecialchars($_POST["birthday"]);
 $user_phone_num = htmlspecialchars($_POST["phone_num"]);
+/* save file */
+  $uploaddir = "./upload_img/";
+  $file_name = explode('.', $_FILES['file']['name']);
+  $uploadfile = $uploaddir.basename($user_email."_profile_.".$file_name[1]);
+  move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile);
+
 if(!isset($_FILES['file'])){
 echo "업로드된 이미지가 없습니다.";
 }
@@ -52,7 +58,7 @@ else {
   }
   //중복이 없으면 회원정보 db에 저장
   if($result){
-    $sql = "insert into info(email,password,name,birth,phone_num,profile) values('$user_email','$user_password','$user_name','$user_birth','$user_phone_num','$profile')";
+    $sql = "insert into info(email,password,name,birth,phone_num,profile) values('$user_email','$user_password','$user_name','$user_birth','$user_phone_num','$uploadfile')";
     if($dbconn->query($sql)){
       echo("<script>alert('회원가입 성공'); location.href='./index.html';</script>");
     }
