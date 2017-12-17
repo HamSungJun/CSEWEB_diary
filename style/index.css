@@ -1,0 +1,26 @@
+.bg-ivory{
+    background-color : ivory;
+}
+.bg-tomato{
+    background-color : tomato;
+}
+
+.container-fluid{
+    height : 100vh;
+}    
+ 
+.H_100{
+    height : 100%;
+}
+h1{
+    color : ivroy;    
+}
+
+#fail{  
+    width: 450px;
+    color: #333;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: sans-serif;
+    visibility: hidden;
+}

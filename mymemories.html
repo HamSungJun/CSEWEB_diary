@@ -1,0 +1,169 @@
+<?php
+  session_start();
+  $name = $_SESSION['name'];
+  $path = $_SESSION['path'];
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Memoires</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" type="image/png" href="http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/device-camera-icon.png"/>
+        <link rel="stylesheet" href="./libraries/jquery-ui.css">
+        
+        <link async href="http://fonts.googleapis.com/css?family=Passero%20One" data-generated="http://enjoycss.com" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <script src="./libraries/jquery-3.2.1.js"></script>
+        <link rel="stylesheet" href="./libraries/bootstrap.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Space+Mono|Spirax|Anton|Pacifico|Cabin+Sketch|Sigmar+One" rel="stylesheet">
+
+       
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="./javascript/mymemories.js"></script>
+        <link rel="stylesheet" href="./style/mymemories.css">
+        
+    </head>
+    <body>
+          <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="col-1"></div>
+                <div class="collapse navbar-collapse">
+                    <img src="http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/device-camera-icon.png" alt="" width="30" height="30">
+                    <ul class="navbar-nav mr-auto" id="navbarText">
+                        <li class="nav-item large">
+                        <a class="nav-link" href="home.html">Home<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item large">
+                        <a class="nav-link active" href="mymemories.html">My Memories</a>
+                        </li>
+                        <li class="nav-item large">
+                        <a class="nav-link" href="writing.html">Writing</a>
+                        </li>
+                       </ul>
+                    <span class="navbar-text">
+                    </span>
+                </div>
+
+            <div class="col-2">
+
+                        <ul class="navbar-nav mr-auto">
+                            <img id="profile_img" width="45" height="45" src=<?= $path ?> alt="">
+                            <li class="nav-item large">
+                                <a class="nav-link active" href=""><?= $name ?></a>
+                            </li>
+                        </ul>
+            </div>
+
+
+            <div class="col-1" >
+            <a href="logout.php"><span class="fa fa-sign-out fa-2x" style="color : white"></span></a>
+            </div>
+        </nav>
+        <div style="background : ivory" class="container-fluid h_70 bg-ivory">
+          <!-- 여기가 이미지 나타나는 로우 -->
+        <div id="Img_Container" class="row h_30 my-20 align-items-center no-gutters ">
+
+            <div id="Image_pointer" class="text-center"></div>
+
+        </div>
+
+
+        <div class="container-fluid bottom_bar fixed-bottom">
+        <div class="row">
+        <div class="col-4">
+
+        </div>
+         <div class="col-2 text-center text-white">
+                <button id="page_Up" type="button" class="btn btn-dark no-Padding"><span class="fa fa-arrow-circle-o-up fa-4x" style="color : white" aria-hidden="true"></span></button>
+            </div>
+
+            <div class="col-2 text-center">
+                <button id="page_Down" type="button" class="btn btn-dark no-Padding"><span class="fa fa-arrow-circle-o-down fa-4x" style="color : white" aria-hidden="true"></span></button>
+            </div>
+         <div class="col-4">
+            <div class="row">
+                <div class="col-12 text-center text-white">
+
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+        </div>
+
+
+        </div>
+
+        <div class="container text-center">
+                <!-- Trigger the modal with a button -->
+                    <!-- Modal -->
+
+
+                    <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog modal-fullsize">
+                            <!-- Modal content-->
+                            <div class="modal-content modal-fullsize">
+                                <div class="modal-header">
+                                    <div  class="container-fluid Subject_C">
+                                        <div class="row align-items-center">
+                                            <div class="col-1">
+                                                <i class="fa fa-pencil-square-o fa-3x" aria-hidden="true"></i>
+                                            </div>
+                                            <div class="col-7">
+                                                <p class="modal-title" id="Subject"></p>
+                                            </div>
+                                            <div class="col-1">
+                                                <i class="fa fa-calendar fa-3x" aria-hidden="true"></i>
+                                            </div>
+                                            <div class="col-3">
+                                                <p id="Date"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                                <div class="modal-body">
+                                    <img id="final_img" src="" alt="">
+                                    <p id="Comment"></p>
+                                   
+                                    
+
+                                  
+                                 
+                                    
+
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="container-fluid Subject_C">
+                                        <div class="row align-items-center">
+                                            <div class="col-1">
+                                                    <i class="fa fa-eye fa-3x" aria-hidden="true"></i>
+                                            </div>
+                                            <div class="col-1">
+                                                    <p id="HIT_NUM"></p>
+                                            </div>
+                                            <div class="col-9"></div>
+                                            <div class="col-1">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+            </div>
+
+
+
+
+    </body>
+    </html>

@@ -1,0 +1,49 @@
+.bg-1{
+    background-color : #1abc9c;
+}
+.bg-ivory{
+    background-color : ivory;
+}
+.container-fluid{
+    height : 100vh;
+}
+
+.H_20{
+    height : 20%;
+}
+
+.H_100{
+    height : 100%;
+}
+
+.monitor{
+    /* border: 2px solid tomato; */
+    height : 460px;
+    background: linear-gradient(45deg, #333 25%,
+        white 25%, white 50%, 
+        #333 50%, #333 75%, 
+        white 75%);
+    padding : 0px;
+    background-size:100px 100px;
+}
+
+.contentbox{
+    height : auto;
+    width : 540px;
+    background-color : white;
+    margin-top : 50px;
+    margin-left : 50px;
+} 
+
+#guide{
+    font-family : 'Bungee', cursive;
+    font-size : 40pt;
+    margin-top : 60px;
+}
+
+#value{
+    /* border: 2px solid gray; */
+    margin-bottom : 30px;
+    font-family : 'Bungee', cursive;
+    font-size : 20pt;
+}

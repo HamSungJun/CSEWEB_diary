@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Memoires</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link
+            rel="shortcut icon"
+            type="image/png"
+            href="http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/device-camera-icon.png"/>
+        <link rel="stylesheet" href="./libraries/bootstrap.css">
+        <link
+            async="async"
+            href="http://fonts.googleapis.com/css?family=Passero%20One"
+            data-generated="http://enjoycss.com"
+            rel="stylesheet"
+            type="text/css"/>
+        <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <script src="./libraries/jquery-3.2.1.js"></script>
+        <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="./javascript/find_id_pw.js"></script>
+        <link rel="stylesheet" href="./style/find_id_pw.css">
+    </head>
+
+    <body>
+        <div class="container-fluid bg-ivory">
+            <div class="row align-items-center bg-dark fixed-top">
+                <div class="col-md-1"></div>
+                <div class="col-md-1 bg-dark text-center">
+                    <a href="index.html">
+                        <button type="button" class="btn btn-light" aria-label="Left Align">
+                            <span class="fa fa-home fa-3x" aria-hidden="true"></span></button>
+                    </a>
+                </div>
+
+                <div class="col-md-8 text-center bg-dark">
+                    <h1 >Find ID/PW</h1>
+                </div>
+                <div class="col-md-2 bg-dark"></div>
+            </div>
+
+            <div class="row align-items-center bg-ivory H_100">
+                <div class="col-md-1"></div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="name">
+                            <h3>User Name:</h3>
+                        </label>
+                        <input
+                            type="text"
+                            name="name"
+                            class="form-control"
+                            id="name"
+                            placeholder="Put your name...">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="birthday">
+                            <h3>BirthDay (YYYY-MM-DD):</h3>
+                        </label>
+                        <input type="date" name="birthday" class="form-control" id="birthday">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone_num">
+                            <h3>Phone Number (OOO-OOOO-OOOO):</h3>
+                        </label>
+                        <input
+                            type="text"
+                            name="phone_num"
+                            class="form-control"
+                            id="phone_num"
+                            placeholder="Put your phone number...">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">
+                            <h3>User email</h3>
+                        </label>
+                        <input
+                            type="email"
+                            name="email"
+                            class="form-control"
+                            id="email"
+                            placeholder="Put your email...">
+                    </div>
+
+                    <div class="row">
+                        <div class="col-3">
+                            <button type="button" class="btn btn-light btn-lg btn-block" id="findid">Find ID</button>
+                        </div>
+
+                        <div class="col-3">
+                            <button type="button" class="btn btn-dark btn-lg btn-block" id="findpw">Find PW</button>
+                        </div>
+
+                        <div class="col-3">
+                            <button type="button" class="btn btn-danger btn-lg btn-block" id="clear">Clear</button>
+                        </div>
+
+                        <div class="col-3">
+                            <button type="button" class="btn btn-success btn-lg btn-block" id="submit">Submit</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2"></div>
+                <div class="col-md-4">
+                    <div>
+
+                        <div class="row align-items-center">
+                            <div class="col-12 monitor">
+                                <div class="row contentbox">
+                                    <div class="col-12 text-center">
+                                        <p id="guide"></p>
+                                    </div>
+
+                                    <div class="col-12 text-center">
+                                        <p id="value"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+</body>
+</html>

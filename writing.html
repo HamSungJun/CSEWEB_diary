@@ -1,0 +1,252 @@
+<?php
+  session_start();
+  $name = $_SESSION['name'];
+  $path = $_SESSION['path'];
+?>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Memoires</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link
+            rel="shortcut icon"
+            type="image/png"
+            href="http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/device-camera-icon.png"/>
+        
+      
+        <link rel="stylesheet" href="./libraries/bootstrap-colorpicker.css">
+        <link
+            async="async"
+            href="http://fonts.googleapis.com/css?family=Passero%20One"
+            data-generated="http://enjoycss.com"
+            rel="stylesheet"
+            type="text/css"/>
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <script src="./libraries/jquery-3.2.1.js"></script>
+        <link rel="stylesheet" href="./libraries/bootstrap.css">
+        <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script
+            type"text/javascript"="type"text/javascript""
+            src="./libraries/bootstrap-filestyle.js"></script>
+        <script type="text/javascript" src="./libraries/bootstrap-colorpicker.js"></script>
+        <link
+            href="https://fonts.googleapis.com/css?family=Amatic+SC|Space+Mono|Spirax|Anton|Pacifico|Cabin+Sketch|Sigmar+One"
+            rel="stylesheet">
+        <script src="./javascript/writing.js"></script>
+        <link rel="stylesheet" href="./style/writing.css">
+    </head>
+    <body class="bg-ivory">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="col-1"></div>
+            <div class="collapse navbar-collapse">
+                <img
+                    src="http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/device-camera-icon.png"
+                    alt=""
+                    width="30"
+                    height="30">
+                <ul class="navbar-nav mr-auto" id="navbarText">
+                    <li class="nav-item large">
+                        <a class="nav-link" href="home.html">Home<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item large">
+                        <a class="nav-link" href="mymemories.html">My Memories</a>
+                    </li>
+                    <li class="nav-item large">
+                        <a class="nav-link active" href="writing.html">Writing</a>
+                    </li>
+                </ul>
+                <span class="navbar-text"></span>
+            </div>
+
+            <div class="col-2">
+
+                <ul class="navbar-nav mr-auto">
+                    <img id="profile_img" width="45" height="45" src=<?= $path ?> alt="">
+                    <li class="nav-item large">
+                        <a class="nav-link active" href=""><?= $name ?></a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-1">
+                <a href="logout.php">
+                    <span class="fa fa-sign-out fa-2x" style="color : white"></span></a>
+            </div>
+        </nav>
+        <div class="container-fluid">
+
+            <div class="row bg-1 h_100">
+
+                <div class="col-12 h_10"></div>
+                <div class="col-1"></div>
+                <div class="col-10">
+
+                    <div class="row bg-1  align-items-center">
+
+                        <div class="col-2 text-center">
+
+                            <div class="form-group">
+
+                                <label for="font_select"></label>
+                                <select class="form-control-lg form-control" id="font_select">
+                                    <optgroup label="Fonts..."></optgroup>
+                                    <option value="Space Mono" class="Space_Mono large">Space Mono</option>
+                                    <option value="Amatic SC" class="Amatic_SC large">Amatic SC</option>
+                                    <option value="Spirax" class="Spirax large">Spirax</option>
+                                    <option value="Anton" class="Anton large">Anton</option>
+                                    <option value="Pacifico" class="Pacifico large">Pacifico</option>
+                                    <option value="Cabin Sketch" class="Cabin_Sketch large">Cabin_Sketch</option>
+                                    <option value="Sigmar One" class="Sigmar_One large">Sigmar_One</option>
+
+                                </select>
+
+                                <label for="grayscale_select"></label>
+                                <select class="form-control-lg form-control" id="grayscale_select">
+
+                                    <option value="0%" class="large">GrayScale(%)</option>
+                                    <option value="10%" class="large">10%</option>
+                                    <option value="20%" class="large">20%</option>
+                                    <option value="30%" class="large">30%</option>
+                                    <option value="40%" class="large">40%</option>
+                                    <option value="50%" class="large">50%</option>
+                                    <option value="60%" class="large">60%</option>
+                                    <option value="70%" class="large">70%</option>
+                                    <option value="80%" class="large">80%</option>
+                                    <option value="90%" class="large">90%</option>
+                                    <option value="100%" class="large">100%</option>
+
+                                </select>
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <h4 class="card-title">Opacity</h4>
+                                        <p class="card-text">The level of transparency of an element</p>
+                                        <button type="button" id="opacity" class="rect btn btn-primary btn-sm">Opacity +</button>
+                                        <button type="button" id="opacity-" class="rect btn btn-danger btn-sm">Opacity -</button>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <h4 class="card-title">Radius</h4>
+                                        <p class="card-text">Radius property is used to add rounded corners to an element.</p>
+                                        <button type="button" id="radius" class="rect btn btn-primary btn-sm ">radius +</button>
+                                        <button type="button" id="radius-" class="rect btn btn-danger btn-sm ">radius -</button>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <h4 class="card-title">Colored Boder</h4>
+                                        <p class="card-text">Giving image to various types of border with color
+                                        </p>
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <input
+                                                        id="Thick_input"
+                                                        type="text"
+                                                        class="form-control mar_B"
+                                                        placeholder="Thickness(Number)"/>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <select class="form-control mar_B " id="Type_select">
+                                                        <optgroup label="Types..."></optgroup>
+                                                        <option value="">Border Type</option>
+                                                        <option value="solid" class="">solid</option>
+                                                        <option value="dotted" class="">dotted</option>
+                                                        <option value="double" class="">double</option>
+                                                        <option value="ridge" class="">ridge</option>
+
+                                                    </div>
+
+                                                    <div class="col-12">
+                                                        <input
+                                                            id="Color_input"
+                                                            type="text"
+                                                            class="form-control mar_B"
+                                                            placeholder="Color"/>
+
+                                                        <button
+                                                            type="button"
+                                                            id="border_Apply"
+                                                            class="btn btn-success btn-sm btn-block">Apply</button>
+                                                        <button
+                                                            type="button"
+                                                            id="border_Cancel"
+                                                            class="btn btn-danger btn-sm btn-block">Cancel</button>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-1"></div>
+                            <div class="col-8 text-center">
+
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-addon fa fa-pencil fa-3x"></span>
+                                    <input
+                                        id="subject"
+                                        name="subject"
+                                        type="text"
+                                        class="form-control font_input"
+                                        placeholder="What Subject?">
+                                </div>
+
+                                <div class="target_img_container">
+                                    <img
+                                        id="target_img"
+                                        class="card-img-top"
+                                        src="./materials/img/default.png"
+                                        alt="">
+                                </div>
+
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-addon fa fa-calendar fa-3x"></span>
+                                    <input
+                                        id="date"
+                                        name="date"
+                                        type="date"
+                                        class="form-control font_input"
+                                        placeholder="">
+                                </div>
+
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-addon fa fa-comment fa-3x"></span>
+                                    <input
+                                        id="comment"
+                                        name="comment"
+                                        type="text"
+                                        class="form-control font_input"
+                                        placeholder="Some Comments...">
+                                </div>
+
+                                <label class="control-label">
+                                    <form action="./php/Image_Saver2.php" method="post" enctype="multipart/form-data">
+
+                                        <input type="file" name="file" id="fileUpload" class="filestyle">
+                                    </label>
+                                    <button id="submit_btn" type="submit" class="btn btn-primary btn-lg">I Want To Save This</button>
+                                </form>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-1"></div>
+
+                </div>
+
+            </div>
+
+        </body>
+    </html>

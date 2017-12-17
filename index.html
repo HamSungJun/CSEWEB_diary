@@ -1,102 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>Memoires</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" type="image/png" href="http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/device-camera-icon.png"/>
-  <link rel="stylesheet" href="./libraries/jquery-ui.css">
-  <link rel="stylesheet" href="./libraries/bootstrap.css">
-  <link async href="http://fonts.googleapis.com/css?family=Passero%20One" data-generated="http://enjoycss.com" rel="stylesheet" type="text/css"/>
-  <script src="./libraries/jquery-3.2.1.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="./libraries/jquery.cookie.js"></script>
+  <head>
+    <title>Memoires</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/device-camera-icon.png"/>
+    <link rel="stylesheet" href="./libraries/jquery-ui.css">
+    <link rel="stylesheet" href="./libraries/bootstrap.css">
+    <link async href="http://fonts.googleapis.com/css?family=Passero%20One" data-generated="http://enjoycss.com" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="./style/index.css">
+    <script src="./libraries/jquery-3.2.1.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="./libraries/jquery.cookie.js"></script>
+    <script src="./javascript/index.js"></script>
+  </head>
 
-  <script>
-    $(document).ready(function () {
-      $(".form-group").focusin(function () {
-        $("h1").addClass("rainbow");
+  <body>
+    <div class="container-fluid"> 
+      <div class="fixed-top bg-dark align-items-center">
+        <div class="col-12 text-center">
+          <h1>Memories</h1>
+        </div>
+      </div>
+
+      <div class="row align-items-center bg-ivory H_100">
+          <div class="col-2"></div>
+        <div class="col-3 text-center">
+          <img id="camera" class="rounded"  src="http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/device-camera-icon.png"  alt="" width="400" height="400">
+        </div>
+        <div class="col-1"></div>
         
-      })
-      $("#submit").on("click" , function () {
-        if($("#remember").is(":checked") == true){
+        <div class="col-3">
+          <div class="form-group">
+            <label for="email">User Name:</label>
+            <input type="text" name="email" class="form-control" id="email">
+          </div>
 
-          var id_log = $("#email").val();
-          var pw_log = $("#pw").val();
-          $.cookie('id',$('#signinId').val());
-          $.cookie('pass',$('#signinPwd').val());
+          <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input type="password" name="pw" class="form-control" id="pw">
+          </div>
 
-          // alert($("#email").val());
-          // alert($("#pw").val())
-        }        
-      })
+          <div>
+            <marquee behavior=alternate id="fail">로그인 실패</marquee>
+          </div>
+                
+          <button type="submit" class="btn btn-success" id="submit">Login</button>
+          <a href="register.html"><button type="button" class="btn btn-primary" id="register">register</button></a>
+          <a href="find_id_pw.html"><button type="button" class="btn btn-secondary" id="find">Find ID/PW</button></a>   
+        </div>
 
-      
-      
-      })
-
-
-  
-  </script>
-  <style>
-   
-    .bg-1{
-    background-color : #1abc9c;
-    }
-    .container-fluid{
-      height : 100vh;
-    }
-    
-    .H_100{
-      height : 100%;
-    }
-  </style>
-</head>
-<body>
-<div class="container-fluid"> 
-<div class="fixed-top bg-primary align-items-center">
-  <div class="col-12 text-center">
-  <h1>Memories</h1>
-  </div>
-</div>
-
-<div class="row align-items-center bg-1 H_100">
-    <div class="col-2"></div>
-    <div class="col-3 text-center">
-      <img id="camera" class="rounded"  src="http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/device-camera-icon.png"  alt="" 
-      width="400" height="400">
+        <div class="col-3"></div>
+      </div>
     </div>
-    <div class="col-1"></div>
-    
-    <div class="col-3">
-      
-        <form action="index.php" method="POST">
-          
-            <div class="form-group">
-              <label for="email">User Name:</label>
-              <input type="text" name="email" class="form-control" id="email">
-            </div>
-            <div class="form-group">
-              <label for="pwd">Password:</label>
-              <input type="password" name="pw" class="form-control" id="pw">
-            </div>
-            <div class="checkbox">
-              <label><input type="checkbox" name="remember" value="true" id="remember">Remember me</label>
-            </div>
-
-            <button type="submit" class="btn btn-success" id="submit">Login</button>
-            <a href="register.html"><button type="button" class="btn btn-primary" id="register">register</button></a>
-            <a href="find_id_pw.php"><button type="button" class="btn btn-secondary" id="find">Find ID/PW</button></a>
-            
-           
-        </form>
-
-    </div>
-    
-    <div class="col-3"></div>
-
-</div>
-  
-</div>
-</body>
+  </body>
 </html>

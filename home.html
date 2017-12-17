@@ -1,0 +1,225 @@
+<?php
+  session_start();
+  $name = $_SESSION['name'];
+  $path = $_SESSION['path'];
+
+?>
+<!DOCTYPE html>
+
+<html lang="ko">
+    <head>
+        <title>Memories</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" type="image/png" href="http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/device-camera-icon.png"/>
+        <link rel="stylesheet" href="./libraries/jquery-ui.css">
+        <link rel="stylesheet" href="./libraries/bootstrap.css">
+        <link async href="http://fonts.googleapis.com/css?family=Passero%20One" data-generated="http://enjoycss.com" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <script src="./libraries/jquery-3.2.1.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+        <style>
+        .bg-1{
+            background-color : #fffff0;
+        }
+        .bg-2{
+            background-color :coral;
+            border : 80px solid white;
+        }
+        .bg-3{
+            background-color : orange;
+            padding : 100px;
+        }
+        .bg-footer{
+            background-color : white;
+            color : black;
+
+        }
+        .mar-1{
+            margin-top : 8.33333%;
+            margin-bottom : 8.33333%;
+            border-radius: 0.5rem;
+        }
+
+        .font-icsl{
+            font-family: 'Inconsolata', monospace;
+        }
+        .container-fluid{
+            height : 100vh;
+        }
+        .H_100{
+            height : 100%;
+        }
+        .H_10{
+            height : 10%;
+        }
+        #profile_img{
+            border-radius: 50%;
+        }
+        .col-12{
+          margin : 0;
+          text-align : center;
+          font-size : 40pt;
+          color : white;
+          text-shadow: 2px 2px grey;
+          font-style : oblique;
+        }
+        .creater{
+          color : #333;
+        }
+        .col-12 h1{
+          text-align : center;
+          font-size : 30pt;
+          color : lightgrey;
+          font-style : oblique;
+        }
+
+        .bg-3 h2{
+          text-indent : 50px;
+          color : white;
+          font-style : oblique;
+          font-size : 50pt;
+          ;
+        }
+
+        .bg-3 h3{
+          font-size : 30pt;
+          color : red;
+          text-indent : 200px;
+          font: italic Georgia;
+        }
+
+        .bg-3 h4{
+          font-size : 30pt;
+          color : red;
+          text-indent : 250px;
+          font: italic Georgia;
+        }
+
+        .name{
+          font-size : 15pt;
+          font-style : italic;
+          margin : 0;
+          text-shadow : none;
+        }
+
+        .backimg{
+          border : 10px solid black;
+          border-radius : 100px;
+          margin-top : 100px;
+
+          width : 1600px;
+          height : 900px;
+          display : inline-block;
+
+
+        }
+
+
+
+        a#MOVE_TOP_BTN {
+            font-size : 30px;
+            color : black;
+            font-style : italic;
+            text-shadow: 1px 1px white;
+            font-weight : bold;
+            position: fixed;
+            right : 50%;
+            bottom: 23px;
+            display: none;
+            z-index: 999;
+        }
+
+      </style>
+      <script>
+
+            $(function() {
+                $(window).scroll(function() {
+                    if ($(this).scrollTop() > 500) {
+                        $('#MOVE_TOP_BTN').fadeIn();
+                    } else {
+                        $('#MOVE_TOP_BTN').fadeOut();
+                    }
+                });
+
+                $("#MOVE_TOP_BTN").click(function() {
+                    $('html, body').animate({
+                        scrollTop : 0
+                    }, 400);
+                    return false;
+                });
+            });
+      </script>
+    </head>
+    <body>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="col-1"></div>
+                <div class="collapse navbar-collapse">
+                    <img src="http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/device-camera-icon.png" alt="" width="30" height="30">
+                    <ul class="navbar-nav mr-auto" id="navbarText">
+                        <li class="nav-item large">
+                        <a class="nav-link active" href="home.html">Home<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item large">
+                        <a class="nav-link" href="mymemories.html">My Memories</a>
+                        </li>
+                        <li class="nav-item large">
+                        <a class="nav-link" href="writing.html">Writing</a>
+                        </li>
+                       </ul>
+                    <span class="navbar-text">
+                    </span>
+                </div>
+
+            <div class="col-2">
+
+                        <ul class="navbar-nav mr-auto">
+                            <img id="profile_img" width="45" height="45" src=<?= $path ?> alt="333333">
+                            <li class="nav-item large">
+                                <a class="nav-link active" href=""><?=$name?></a>
+                            </li>
+                        </ul>
+            </div>
+
+
+            <div class="col-1" >
+            <a href="logout.php"><span class="fa fa-sign-out fa-2x" style="color : white"></span></a>
+            </div>
+        </nav>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-1">  </div>
+            <div class="col-10">
+                <img class="backimg" src="./materials/img/home1.png" alt="">
+            </div>
+            <div class="col-1">  </div>
+            <div class="w-100">
+            </div>
+            <div class="col-1">  </div>
+            <div class="col-10">
+              <img class="backimg" src="./materials/img/home2.png" alt="">
+
+            </div>
+            <div class="col-1">  </div>
+            <div class="w-100">
+            </div>
+            <div class="col-1">  </div>
+            <div class="col-10">
+                <img class="backimg" src="./materials/img/home3.png" alt="">
+            </div>
+            <div class="col-1">  </div>
+            <div class="w-100">
+            </div>
+            <div class="col-1">  </div>
+            <div class="col-10">
+              <img class="backimg" src="./materials/img/home4.png" alt="">
+            </div>
+            <div class="col-1">  </div>
+
+
+          </div>
+        </div>
+    </body>
+</html>
